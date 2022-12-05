@@ -23,7 +23,7 @@ Want to buy me a coffee?
 </p>
 
 <p align=center font-size='8px'>
-0x494D327885B997b03AEcf90880552685738D1e40
+0xfbravo.eth
 </p>
 
 
