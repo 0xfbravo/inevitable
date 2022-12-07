@@ -15,6 +15,17 @@ export class AwsService {
     this.region = process.env.AWS_REGION || 'unknown';
   }
 
+  async deleteFromS3(bucket: string, key: string) {
+    this.logger.log(`Deleting a file from [${bucket}/${key}] S3`);
+    const s3Manager = new S3();
+    const objectRequest: S3.DeleteObjectRequest = {
+      Bucket: bucket,
+      Key: key,
+    };
+    await s3Manager.deleteObject(objectRequest).promise();
+    return true;
+  }
+
   async writeToS3(
     bucket: string,
     key: string,
@@ -38,20 +49,12 @@ export class AwsService {
 
   async readFromS3(bucket: string, key: string): Promise<any> {
     this.logger.log(`Reading a file at [${bucket}/${key}] S3`);
-    const cacheKey = bucket + key;
-    const cachedResponse: string = await this.cacheManager.get(cacheKey);
-
-    if (cachedResponse && cachedResponse !== '') {
-      return cachedResponse;
-    }
-
     const s3Manager = new S3();
     const objectRequest: S3.GetObjectRequest = {
       Bucket: bucket,
       Key: key,
     };
     const object = await s3Manager.getObject(objectRequest).promise();
-    await this.cacheManager.set(cacheKey, object, 100);
     return object;
   }
 }

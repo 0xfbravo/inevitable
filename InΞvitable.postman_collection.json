@@ -1,0 +1,87 @@
+{
+	"info": {
+		"_postman_id": "28943caf-0363-417c-96c6-e8807e316534",
+		"name": "InΞvitable",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23040941"
+	},
+	"item": [
+		{
+			"name": "Read UUID Metadata",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/metadata/38dbdcd3-cee2-424d-a90e-8a9c83f4f602",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"metadata",
+						"38dbdcd3-cee2-424d-a90e-8a9c83f4f602"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post new Metadata",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"A bu ble ble\",\n    \"description\": \"Testing\",\n    \"image\": \"https://lwfiles.mycourse.app/inevitable-public/custom/400x0_f6c1f9c833a2ed29c2633ca3549b2fb9.png\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/metadata",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"metadata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update the Metadata of an UUID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"A bu ble ble\",\n    \"description\": \"Testing\",\n    \"image\": \"https://lwfiles.mycourse.app/inevitable-public/custom/400x0_f6c1f9c833a2ed29c2633ca3549b2fb9.png\",\n    \"someNewField\": \"Some new field filled\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/metadata/38dbdcd3-cee2-424d-a90e-8a9c83f4f602",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"metadata",
+						"38dbdcd3-cee2-424d-a90e-8a9c83f4f602"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
